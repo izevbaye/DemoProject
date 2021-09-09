@@ -1,0 +1,25 @@
+﻿@*<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("Xadosh_Slides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000)  // Change image every 2 seconds
+    }
+
+
+</script>*@
+    <div class="X_Img">
+        <div style="height:200px;" class="Xadosh_Slides img_fluid img-responsive X_Img"><img class="img_fluid img-responsive X_Img" src="/images/Gifts/flowers/HB013.jpg">This is Image 1</div>
+        <div style="height:200px;" class="Xadosh_Slides img_fluid img-responsive X_Img"><img class="img_fluid img-responsive X_Img" src="/images/Gifts/flowers/HB011-1.jpg">Welcome to Image 2</div>
+        <div style="height:200px;" class="Xadosh_Slides img_fluid img-responsive X_Img"><img class="img_fluid img-responsive X_Img" src="/images/Gifts/flowers/HB034.jpg">And finally Image number 3</div>
+        <div style="height:200px;" class="Xadosh_Slides img_fluid img-responsive X_Img"><img class="img_fluid img-responsive X_Img" src="/images/Gifts/flowers/HB034.jpg">Trying out number 4</div>
+        <div style="height:200px;" class="Xadosh_Slides img_fluid img-responsive X_Img"><img class="img_fluid img-responsive X_Img" src="/images/Gifts/flowers/HB034.jpg">Ehioze na inwi</div>
+    </div>

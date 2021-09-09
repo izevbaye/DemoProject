@@ -1,0 +1,497 @@
+﻿@page "{handler?}"
+@model DemoProject.Web.Pages.Basket.IndexModel
+@{
+}
+
+
+ 
+
+
+
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery antiforgery
+
+@{
+    ViewData["Title"] = "Shopping basket";
+    var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+
+@section scripts
+    {
+    @try
+    {
+
+        <script>
+    $(document).ready(function () {
+
+
+        var User = 'Http.identity';
+
+
+        //try {
+        //    // user = "accounts/" + User.Identity.Name.ToString();
+        //    user = "User.Identity.Name.ToString()";////28-08-2019 changed from user to aspnetID User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        //}
+        //catch (System.Exception err)
+        // {
+        //var message = new { id = "err.Message.ToString()" };
+
+        //  }
+
+        $('#CheckOut').click(function (e) {
+            e.preventDefault(e);
+        });
+
+
+
+
+
+         $('.Update_Class').show();
+
+
+
+
+         $('#Delete').click(function (e) {
+                    $("#Basket tbody").remove();
+             $("#Basket").append("<tbody class='text-center'> <tr><td>Your Basket is now empty ...</tr></td></tbody>");
+
+
+
+    });
+        $('.save_l').click(function(e) {
+        e.preventDefault(e);
+
+            var Ehi;
+            var Thea;
+
+
+        var ProID = $(this).attr('id');
+            $(this).closest('tr').find(":input[type=hidden]").each(function () {
+
+            var abcd = $(this).parents('tr').find('.wrapperDivHidden input[type="hidden"]').val();
+
+
+
+                BID = $(this).closest('td').find('#BID2').val();
+                Thea = $(this).closest('td').find('#Thea2').val();
+                alert(BID + 'BID IS bid 1');
+                alert(Thea + ' Thea is hepburn ');
+
+
+                return;
+
+
+
+
+
+                         @*@await Html.PartialAsync("/Views/Shared/Scripts/ShoppingCart_Update.js");*@
+
+            });
+        });
+
+        $('#plus').click(function (e) {
+            e.preventDefault(e);
+
+
+
+            var BID;
+            var id;
+
+            var PN;
+            $(this).closest('tr').find(":input[type=number]").each(function () {
+                BID = $(this).closest('td').find('#BID').val();
+                Ehi = $(this).closest('td').find('#Ehi').val();
+                Thea = $(this).closest('td').find('#Thea').val();
+                id = $(this).closest('tr').find('.id').text().trim();
+                PN = $(this).closest('tr').find('.PN').text().trim();
+            });
+            if (Thea <= 0) {
+
+                alert('Sorry the quantity cant be less than 1');
+                $(this).closest('td').find('#Thea').text('1');
+
+            }
+
+            $('#Update2').show();
+            $('#Update').show();
+            $('#Thea').val(parseInt(Thea) + 1);
+        });
+
+
+
+
+        $('#minus').click(function (e) {
+            e.preventDefault(e);
+
+
+
+            var BID;
+            var id;
+
+            var PN;
+            $(this).closest('tr').find(":input[type=number]").each(function () {
+                BID = $(this).closest('td').find('#BID').val();
+                Ehi = $(this).closest('td').find('#Ehi').val();
+                Thea = $(this).closest('td').find('#Thea').val();
+                id = $(this).closest('tr').find('.id').text().trim();
+                PN = $(this).closest('tr').find('.PN').text().trim();
+            });
+            if (Thea <= 0) {
+
+                alert('Sorry the quantity cant be less than 1');
+                $(this).closest('td').find('#Thea').text('1');
+
+            }
+
+            $('#Thea').val(parseInt(Thea) - 1);
+        });
+
+        $(document).on('click', '.remove', function () {
+
+        var BID;
+            var id;
+
+        var PN;
+         $(this).closest('tr').find(":input[type=number]").each(function () {
+             BID = $(this).closest('td').find('#BID').val();
+             Ehi = $(this).closest('td').find('#Ehi').val();
+             Thea = $(this).closest('td').find('#Thea').val();
+                    id = $(this).closest('tr').find('.id').text().trim();
+          PN = $(this).closest('tr').find('.PN').text().trim();
+        });
+            if (Thea <= 0) {
+
+                alert('Sorry the quantity cant be less than 1');
+                $(this).closest('td').find('#Thea').text('1');
+                return;
+            }
+
+
+
+
+            $('#Basket').prepend('<div style="color:red;" class="text-center"> Your item - "'+BID+'"  - has been deleted from your basket.  <a href="gifts/product/'+BID+'" id="VI">View Item</a></div> ');//+ '</td><td>' + 'message.dawn' + '</td><td>' + 'test' + '</td><td>' + 'testing' + '</td><td>' + 'testing');
+            $(this).parents('tr').fadeOut('7000').css('background', 'red').css('box-shadow', '5px 5px 8px white, 10px 10px 8px red, 15px 15px 8px green').fadeOut('7000');
+            $(this).parents('tr').fadeIn('7000').css('background', 'red').css('box-shadow', '5px 5px 8px white, 10px 10px 8px red, 15px 15px 8px green');
+            $(this).parents('tr').fadeOut('7000').css('background', 'red').css('box-shadow', '5px 5px 8px white, 10px 10px 8px red, 15px 15px 8px green');
+           // $(this).parents('tr').slideDown('5000').remove();
+
+            var datas = { BasketID: parseInt(BID), Quantity: parseInt(Thea), UserName : User, Authentication : 'User' };
+
+               function Post(datas) {
+
+            $.ajax({
+                type: "post",
+                headers: { RequestVerificationToken: '@token' },
+                dataType: 'json',
+                url: "/Cart/Index/Async",
+               // url: "/Api/Test/Post",
+//                dataType: "json",
+                data:  datas,
+               // contentType: "application/json;  charset=utf-8",
+                success: function (response) {
+                    alert(message.thea);
+
+
+                },
+                error: function (response) {
+                    alert(message.thea);
+                    console.log(response);
+                }
+            });
+        };
+
+
+            Post(datas);
+            return;
+        @*@await Html.PartialAsync("~/Views/Shared/Scripts/ShoppingCart_Delete.js");*@
+
+});
+
+
+                @*if (@Model.Count() != 0) -----------------  22/08/2020
+                {
+                $('#Shopping_Basket').html(parseInt($('#Shopping_Basket').html(), 10) + (parseInt(@Model.Count()))).css('background', 'red').css('box-shadow', '5px 5px 8px white, 10px 10px 8px red, 15px 15px 8px green');
+                $('#Shopping-basket-Image').fadeIn('1500').attr("src", "/images/icons/Basket2.png");//.css('border', '5px 5px 8px white, 10px 10px 8px red, 15px 15px 8px green');
+                }*@
+        var data = "ehi and thea";
+
+        function ehi(data) {
+
+
+            var token = $('#__RequestVerificationToken').val();
+        $.ajax({
+
+            type: "POST",
+            url: "/Cart/Index",
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                alert(data);
+                return;
+                $('#message-box').show().html('<BR/><div class="alert alert-success"><h5> Upload successful - Saved with ID: ' + message.id + ' <h5></div><BR/>');
+                $('#ajax_loadings').hide();
+                $('#ajax_loading2').show().html('Image successfully uploaded.\n Upload ID: ' + message.id).css("blue");
+                $(".classify").attr("src", message.fileLocation);
+                $('#Final').show('slow');
+
+
+
+            },
+            error: function (message) {
+                alert(message.id);
+            }
+
+        });
+        };
+
+
+
+        $('#S_Cart').click(function () {
+            //var id = this.va
+
+            $('#Basket').SetEditable({ $addButton: $('#but_add') });
+            $('#Update').show();
+
+            });
+
+     });
+
+        </script>
+    }
+    catch (Exception Err) { }
+}
+<h2>Your shopping basket - Total of @*@(Model.Tbl_Shopping_Basket.Count())*@ items</h2>
+
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form id="__AjaxAntiForgeryForm" method="post" action="#" class="form-inline">
+    @Html.AntiForgeryToken()
+    @try
+    {
+        @if (Model.Tbl_Shopping_Basket.Count() != 0)
+        {
+            decimal sum = 0;
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 X_border_thin text-center ">
+                        <table class="table-active table table-hover  text-center X_border_thin" id="Basket">
+                            <thead class="Buttons_Orange">
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Total
+                                    </th>
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model.Tbl_Shopping_Basket)
+                                {
+                                    sum = sum + item.Basket_Total;
+
+                                    <tr class="text-center  X_border_thin ">
+
+                                        <td>
+
+                                            <a href="/products/@(item.ProductID)">
+                                                <span class="ml-3 classed " data-toggle="modal" data-target="#myModal" style="position: relative; left: 0; top: 0;" data-class="Customize">
+
+                                                    <span class="">
+                                                        <img src="/Images/Shops/Products/@(item.ProductID).png" alt="@item.ProductID)" id="Pro_customize" height="100" class="X_border_thin" />
+                                                    </span>
+
+
+
+                                                </span>
+                                            </a>
+                                            <br />
+                                            @*@Html.ActionLink(item.Tbl_Products.Product_Name, "Product Name", "#")*@
+
+
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Price_Unit)
+                                        </td>
+                                        <td class="text-center">
+                                            <input id="BID" type="hidden" value="@item.BasketID" class="text-center" /><br />
+                                            <div class="text-center minus"><button type="submit" class="form-control" style="width:50px;" value="-" id="minus">-</button><input id="Thea" class="form-control form-inline" type="number" autocomplete="off" style="width:70px;" min="1" size="5" max="10000" value="@item.Quantity" /><button type="submit" value="+" id="plus" class="form-control plus" style="width:50px;">+</button></div>
+
+
+                                            <br />
+                                            <div class="text-center">
+                                                <a class="remove small" href="#" asp-for="@item.ProductID" id="">Delete</a> <span id="Update2" style="display:none">|</span>
+                                                <a class="save_l small" href="#" id="Update" style="display:none">Update</a>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            £ @Html.DisplayFor(modelItem => item.Basket_Total)
+
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="text-left m-lg-5">  @*@Html.ActionLink(item.Tbl_Products.Product_Name, "Product Name", "#")*@</td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                    <div class=" position-sticky Summary  col-md-3 ">
+                        <div class="font-weight-bold Buttons_Green ">YOUR ORDER SUMMARY</div>  <br />
+                        <div id="Summary_Context" class="container">
+                            <br />
+                            <div class="col-12 small">You have  @*@(Model.Tbl_Shopping_Basket.Count())*@ Item(s) in your Basket </div>
+
+
+                            <hr />
+
+                            <div class="col-12 font-weight-bold ">Your Total : £ @sum.ToString("#,##0.##")</div>
+
+                        </div>
+                        <div id="Summary_Context_Update2" style="display:none;"></div>
+
+                        <div id="Summary_Context_Update" style="display:none;">
+                            <p>Please wait while we update your Basket..</p>
+                            Processing ... <img src="~/images/giphy.gif" />
+
+                        </div>
+
+
+                        <br />
+
+                        <input class="btn Buttons_Orange " id="CheckOut" type="submit" value="Proceed to Check Out" name="ehi" />
+                        <hr />
+                        <br />
+                        <a href="/shops" class="small">Continue Shopping</a>
+                        <div>
+
+                        </div>
+                        <div id="result"></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        }
+
+
+        else
+        {
+            <div class="text-center"> <br /> <br /> <br />  Your basket is empty !<br /> <br /> <br /> </div>
+        }
+
+    }
+    catch (Exception err)
+    {
+        <div class="text-center"> <br /> <br /> <br />   @err.Message.ToString()<br /> <br /> <br /> </div>
+        @err.Message.ToString();
+    }
+</form>
+
+
+
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <!-- Modal content -->
+    <div class="modal-content text-center">
+
+
+
+        <p>
+            You have added <span id="X_Sum">0</span> of the product <span id="X_Sum2">0</span> to your basket
+
+        </p>
+
+        <form id="Basket">
+
+            <div class="container">
+
+                <div id="BasketDiv" style="display:none;">
+
+                    <input class="btn Buttons_Orange text-center" id="Input_ID" type="submit" value="Check Out" name="ehi" /><div class="text-center div_hover"> -  You have @*@(Model.Tbl_Shopping_Basket.Count())*@ Item(s) in your Basket,   <a asp-action="/CheckOut">check out</a> or <a asp-action="/Shops">Continue Shopping</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9 text-center ">
+                        <table id="MPcart" class="X_table Table-Normal X_border  text-center mr-5 ml-5">
+
+                            <thead style="color: #000000; background-color: black">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="X_Classify">
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class=" position-sticky Summary col-md-3 ">
+                        <div class="font-weight-bold Buttons_Green ">YOUR ORDER SUMMARY</div>  <br />
+                        <div id="Summary_Context" class="container">
+                            <br />
+                            <div class="col-12 small">You have <span class="X_Count"></span> Item(s) in your Basket </div>
+
+
+                            <hr />
+
+                            <div class="col-12 font-weight-bold ">Your Total : £<span id="X_Total"></span> </div>
+
+                        </div>
+                        <div id="Summary_Context_Update2" style="display:none;"></div>
+
+                        <div id="Summary_Context_Update" style="display:none;">
+                            <p>Please wait while we update your Basket..</p>
+                            Processing ... <img src="~/images/giphy.gif" />
+
+                        </div>
+
+
+                        <br />
+
+                        <input class="btn-default Buttons_Orange pb-3" id="CheckOut" type="submit" value="Proceed to Check Out" name="ehi" />
+                        <hr />
+                        <br />
+                        <a href="/shops" class="small">Continue Shopping</a>
+
+
+                    </div>
+
+                </div>
+                <input class="btn Buttons_Orange text-center" id="CheckOut3" type="submit" value="Check Out" name="ehi" /><div class="text-center"> -  You have <span class="X_Count">0</span> Item(s) in your Basket,   <a asp-action="/CheckOut">check out</a> or <a asp-action="/Shops">Continue Shopping</a></div>
+
+            </div>
+
+
+
+
+        </form>
+    </div>
+</div>
+<div>Basket mouth don start to speak again, oh oh oh</div>

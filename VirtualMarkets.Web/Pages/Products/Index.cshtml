@@ -1,0 +1,431 @@
+﻿@page
+@model DemoProject.Web.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Product";
+}
+@section scripts
+    {
+
+    <script>
+        $(document).ready(function () {
+
+
+
+            $("#HideThis").click(function (e) {
+
+                e.preventDefault();
+                $("#SideMenu").slideDown('5000').hide();
+
+
+           
+                }
+            );
+        });
+    </script>
+}
+
+<h3>Showing all (@Model.Tbl_Products.Count()) Products </h3>
+
+<p>
+
+</p>
+@await Html.PartialAsync("~/Pages/Shared/VM/Global/_ProductSearch.cshtml")
+<div class="container">
+    <div class="row navbar-expand-lg">
+        <div class="col-md-3 text-center X_border_thin  collapse navbar-collapse" id="SideMenu">
+            <div class="text-center"><h5>General Department - (@Model.Tbl_Products.Count())</h5></div>
+
+            <br /><hr class="horizontal-rule-blue" />
+            <br />
+            <a href="/" id="HideThis">Thea</a>
+            @for (var i = 0; i < @Model.Tbl_Products.Count(); i++)
+            {
+
+
+                <a href="@Model.Tbl_Products[i].Tag_Description_One">
+
+                    @switch (i)
+                    {
+
+                        case 0:
+                            <div>@Model.Tbl_Products.Count() (@Model.Tbl_Products.Count())</div> ;
+                            break;
+
+                        case 1:
+                            <div>@Model.Tbl_Products[i].Product_Name (@Model.Tbl_Products[i].Product_Name)</div> ;
+                            break;
+
+
+                        default:
+                            <div>@Model.Tbl_Products[i].Product_Name </div>;
+
+
+
+
+                            break;
+                            //case 'D':
+                            //    "ehn ehn";
+                            //    break;
+                            //case 'F':
+                            //    "lizzie";
+                            //    break;
+                            //default:
+                            //    "Console.WriteLine()";
+                            //    break;
+                    }
+
+                    <br />
+                </a>
+
+            }
+
+            <br />
+            <hr />
+            <div class="text-center"><h5>People's Department (4)</h5></div>
+        </div>
+        <div class="col-md-9 text-center div_for_col4">
+    
+
+
+
+
+
+
+
+
+                <div class="row text-center">
+
+                    @{int x = Model.Tbl_Products.Count();
+                        if (x == 0)
+                        {<div class="text-center">"No Records found" </div>}}
+
+                    @for (var i = 0; i < Model.Tbl_Products.Count(); i++)
+                    {
+                        var url = (Model.Tbl_Products[i].Product_Name);
+                        var url2 = "Categories";// ViewBag.Dept;
+                        url = url.Replace(" ", "_");
+                        url2 = url2.Replace(" ", "_");
+
+
+                        <div class="col-md-4 text-center   classify">
+
+                            <a href="~/product/?id=@Model.Tbl_Products[i].ProductID">
+                                @Model.Tbl_Products[i].Product_Name<br />
+                                <div>
+                                    <img src="~/images/shops/products/@(Model.Tbl_Products[i].ProductID).png" alt="@(Model.Tbl_Products[i].Product_Name)" class="img-fluid" />
+                                    <br />
+
+                                    @*   @Model[i].Departments.DepartID*@
+                                    @*  @Model[i].Departments.Department_Name*@
+                                    @Model.Tbl_Products[i].Product_Name Categories
+                                    <br /><div class="small">@Model.Tbl_Products[i].Description_Short</div>
+                                </div>
+                            </a><br /><hr />
+
+                        </div>
+                        @for (i = i + 1; i < Model.Tbl_Products.Count(); i++)
+                        {
+                            url = (@Model.Tbl_Products[i].Product_Name);
+
+
+                            <div class="col-md-4 text-center summary classify">
+
+                                <a href="~/product/?id=@Model.Tbl_Products[i].ProductID">
+                                    @Model.Tbl_Products[i].Product_Name<br />
+                                    <div>
+                                        <img src="~/images/shops/products/@( Model.Tbl_Products[i].ProductID).png" alt="@( Model.Tbl_Products[i].Product_Name)" class="img-fluid" />
+                                        <br />
+
+                                        @*@Model[i].Departments.DepartID*@
+                                        @*   @Model[i].Departments.Department_Name*@
+                                        @switch (i)
+                                        {
+                                            case 1:
+                                                <div>@Model.Tbl_Products[i].Product_Name (@Model.Tbl_Products[i].Product_Name )</div>;
+                                                break;
+                                            default:
+
+                                                @Model.Tbl_Products[i].Product_Name
+
+                                                break;
+                                                //case 'D':
+                                                //    "ehn ehn";
+                                                //    break;
+                                                //case 'F':
+                                                //    "lizzie";
+                                                //    break;
+                                                //default:
+                                                //    "Console.WriteLine()";
+                                                //    break;
+                                        } "Categories";
+
+
+
+                                    </div>          <br />@Model.Tbl_Products[i].Description_Short
+                                </a><br /><hr />
+
+                            </div>
+
+                        }
+                        @*}*@
+                        if (i % 3 == 2)
+                        {
+                            <br />
+                        }
+                    }
+                </div>
+
+
+                <br /><hr /><h3>People's Department (4)</h3> <br /><br />
+
+
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 img-fluid classify">
+
+                            <a href="Mens">
+                                For him <br />
+                                <img src="~/images/department_categories/categories/men.png" class="img-fluid" /><br />
+                                Men
+                            </a>
+                        </div>
+                        <div class="col-md-3 img-fluid classify">
+
+                            <a href="Women">
+                                For her<br />
+                                <img src="~/images/department_categories/categories/1250005.png" class="img-fluid" /><br />
+                                Women
+                            </a>
+                        </div>
+                        <div class="col-md-3 img-fluid classify">
+
+                            <a href="Kids">
+                                Kids<br />
+                                <img src="~/images/department_categories/categories/1250006.png" class="img-fluid" /><br />
+                                Kids
+                            </a>
+                        </div>
+                        <div class="col-md-3 img-fluid classify">
+
+                            <a href="Babies">
+                                Babies <br />
+                                <img src="~/images/department_categories/categories/1250007.png" class="img-fluid" /><br />
+                                Babies
+                            </a>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+         
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="container">
+    <div class="row text-center">
+        @await Html.PartialAsync("~/Pages/Shared/VM/Global/_ProductSearch.cshtml")
+        <div class="col-md-12 text-center   X_border_thin">
+
+            <form id="Shops">
+                @Html.AntiForgeryToken()
+                @{int xx = Model.Tbl_Products.Count();
+                    if (xx == 0)
+                    {<div class="text-center">"No Records found" </div>}}
+
+                @for (var i = 0; i < Model.Tbl_Products.Count(); i++)
+                {
+                    var url = Model.Tbl_Products[i].Product_Name;
+
+                    var url2 = "Categories";// ViewBag.Dept;
+                    url = url.Replace(" ", "_");
+                    url2 = url2.Replace(" ", "_");
+
+
+                    <div class="col-md-4 text-center X_border_thin  classify">
+
+                        <a href="~/Product?id=@(Model.Tbl_Products[i].ProductID)">
+                            @Model.Tbl_Products[i].Product_Name<br />
+                            <div>
+                                <img src="~/images/Products_Categories/@(Model.Tbl_Products[i].ProductID).png" alt="@(Model.Tbl_Products[i].Product_Name)" class="img-fluid" />
+                                <br />
+
+                                @*   @Model[i].Products.DepartID*@
+                                @*  @Model[i].Products.Products_Name*@
+
+                                <br /><div class="small">@Model.Tbl_Products[i].Description_Short</div>
+                            </div>
+                        </a><br /><hr />
+
+                    </div>
+                    @for (i = i + 1; i < Model.Tbl_Products.Count(); i++)
+                    {
+                        url = (Model.Tbl_Products[i].Product_Name);
+                        url = url.Replace(" ", "_");
+
+                        <div class="col-md-4 text-center summary classify">
+
+                            <a href="~/Product?id=@(Model.Tbl_Products[i].ProductID)">
+                                @Model.Tbl_Products[i].Product_Name<br />
+                                <div>
+                                    <img src="~/images/Products_Categories/@(Model.Tbl_Products[i].ProductID).png" alt="@(Model.Tbl_Products[i].Product_Name)" class="img-fluid" />
+                                    <br />
+
+                                    @*@Model[i].Products.DepartID*@
+                                    @*   @Model[i].Products.Products_Name*@
+                                    @switch (i)
+                                    {
+                                        case 1:
+                                            <div>@Model.Tbl_Products[i].Product_Name (</div>;
+                                            break;
+                                        default:
+
+                                            @Model.Tbl_Products[i].Product_Name
+
+                                            break;
+                                            //case 'D':
+                                            //    "ehn ehn";
+                                            //    break;
+                                            //case 'F':
+                                            //    "lizzie";
+                                            //    break;
+                                            //default:
+                                            //    "Console.WriteLine()";
+                                            //    break;
+                                    } "Categories";
+
+
+
+                                </div>          <br />@Model.Tbl_Products[i].Description_Short
+                            </a><br /><hr />
+
+                        </div>
+
+                    }
+                    @*}*@
+                    if (i % 3 == 2)
+                    {
+                        <br />
+                    }
+                }
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Product_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].SupplierID)
+            </th>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Tbl_Products_BulkPurchase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Product_Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Description_Short)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Description_Long)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Price_Unit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Price_Advert)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Tag_Description_One)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].Tag_Description_Two)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Products[0].IsEnabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tbl_Products)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SupplierID)
+                </td>
+                <td>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tbl_Products_BulkPurchase.BP_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description_Short)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description_Long)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price_Unit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price_Advert)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tag_Description_One)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tag_Description_Two)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEnabled)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ProductID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

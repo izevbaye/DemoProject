@@ -1,0 +1,54 @@
+﻿@page
+@model DemoProject.Web.Pages.Admin.Departments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].Department_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].Description_Long)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].Description_Short)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].IsEnabled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tbl_Departments) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_Long)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description_Short)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEnabled)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DepartmentID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DepartmentID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DepartmentID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

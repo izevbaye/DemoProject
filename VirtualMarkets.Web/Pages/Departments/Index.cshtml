@@ -1,0 +1,271 @@
+﻿@page
+@model DemoProject.Web.Pages.Departments.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>
+    Showing all (@Model.Tbl_Departments.Count()) Departments
+</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<div class="row text-center">
+
+    @{int x = Model.Tbl_Departments.Count();
+        if (x == 0)
+        {<div class="text-center">"No Records found" </div>}}
+
+    @for (var i = 0; i < Model.Tbl_Departments.Count(); i++)
+    {
+        var url = Model.Tbl_Departments[i].Department_Name;
+        
+        var url2 = "Categories";// ViewBag.Dept;
+        url = url.Replace(" ", "_");
+        url2 = url2.Replace(" ", "_");
+
+
+        <div class="col-md-4 text-center   classify">
+
+            <a href="@Model.Tbl_Departments[i].Description_Short">
+                @Model.Tbl_Departments[i].Department_Name<br />
+                <div>
+                    <img src="~/images/Department_Categories/@(Model.Tbl_Departments[i].DepartmentID).png" alt="@(Model.Tbl_Departments[i].Department_Name)" class="img-fluid" />
+                    <br />
+
+                    @*   @Model[i].Departments.DepartID*@
+                    @*  @Model[i].Departments.Department_Name*@
+                    @Model.Tbl_Departments[i].ProductCount Categories
+                    <br /><div class="small">@Model.Tbl_Departments[i].Description_Short</div>
+                </div>
+            </a><br /><hr />
+
+        </div>
+        @for (i = i + 1; i < Model.Tbl_Departments.Count(); i++)
+        {
+            url = (Model.Tbl_Departments[i].Department_Name);
+            url = url.Replace(" ", "_");
+
+            <div class="col-md-4 text-center summary classify">
+
+                <a href="">
+                    @Model.Tbl_Departments[i].Department_Name<br />
+                    <div>
+                        <img src="~/images/Department_Categories/@(Model.Tbl_Departments[i].DepartmentID).png" alt="@(Model.Tbl_Departments[i].Department_Name)" class="img-fluid" />
+                        <br />
+
+                        @*@Model[i].Departments.DepartID*@
+                        @*   @Model[i].Departments.Department_Name*@
+                        @switch (i)
+                        {
+                            case 1:
+                                <div>@Model.Tbl_Departments[i].Department_Name (@Model.Tbl_Departments[i].ProductCount)</div>;
+                                break;
+                            default:
+
+                                @Model.Tbl_Departments[i].Department_Name
+
+                                break;
+                                //case 'D':
+                                //    "ehn ehn";
+                                //    break;
+                                //case 'F':
+                                //    "lizzie";
+                                //    break;
+                                //default:
+                                //    "Console.WriteLine()";
+                                //    break;
+                        } "Categories";
+
+
+
+                    </div>          <br />@Model.Tbl_Departments[i].Description_Short
+                </a><br /><hr />
+
+            </div>
+
+        }
+        @*}*@
+        if (i % 3 == 2)
+        {
+            <br />
+        }
+    }
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].Department_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].Description_Long)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].Description_Short)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].IsEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tbl_Departments[0].ProductCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tbl_Departments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description_Long)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description_Short)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEnabled)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCount)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.DepartmentID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.DepartmentID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.DepartmentID">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">thea charles-----------------------------------------ehi izevbaye</td>   
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 X_border_thin text-center ">
+            <table class="table-active table table-hover  text-center X_border_thin" id="Basket">
+                <thead class="Buttons_Orange">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th>
+                            Total
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.Tbl_Departments)
+                    {
+                        decimal sum = 0;
+                     
+
+                        <tr class="text-center">
+                            <td>
+
+                                <a href="/products/ ">
+                                    <span class="ml-3 classed " data-toggle="modal" data-target="#myModal" style="position: relative; left: 0; top: 0;" data-class="Customize">
+
+                                        <span class="">
+                                            <img src="/Images/Shops/Products/ ).png" alt=" )" id="Pro_customize" height="100" class="X_border_thin" />
+                                        </span>
+
+
+
+                                    </span>
+                                </a>
+                                <br />
+                                @Html.DisplayFor(modelItem => item.Department_Name)
+
+
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DepartmentID)
+                            </td>
+                            <td class="text-center">
+                                <input id="BID" type="hidden" value=" " class="text-center" /><br />
+                                <div class="text-center minus"><button type="submit" class="form-control" style="width:50px;" value="-" id="minus">-</button><input id="Thea" class="form-control form-inline" type="number" autocomplete="off" style="width:70px;" min="1" size="5" max="10000" /><button type="submit" value="+" id="plus" class="form-control plus" style="width:50px;">+</button></div>
+
+
+                                <br />
+                                <div class="text-center">
+                                    <a class="remove small" href="#" asp-for=" " id="">Delete</a> <span id="Update2" style="display:none">|</span>
+                                    <a class="save_l small" href="#" id="Update" style="display:none">Update</a>
+
+                                </div>
+                            </td>
+                            <td>
+                                @*£ @Html.DisplayFor(modelItem => item.Basket_Total)*@
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"> @Html.DisplayFor(modelItem => item.Department_Name)</td>  //bind your data.
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class=" position-sticky Summary  col-md-3 ">
+            <div class="font-weight-bold Buttons_Green ">YOUR ORDER SUMMARY</div>  <br />
+            <div id="Summary_Context" class="container">
+                <br />
+                <div class="col-12 small">You have  @*@(Model.Tbl_Shopping_Basket.Count())*@ Item(s) in your Basket </div>
+
+
+                <hr />
+
+                <div class="col-12 font-weight-bold ">Your Total : </div>
+
+            </div>
+            <div id="Summary_Context_Update2" style="display:none;"></div>
+
+            <div id="Summary_Context_Update" style="display:none;">
+                <p>Please wait while we update your Basket..</p>
+                Processing ... <img src="~/images/giphy.gif" />
+
+            </div>
+
+
+            <br />
+
+            <input class="btn Buttons_Orange " id="CheckOut" type="submit" value="Proceed to Check Out" name="ehi" />
+            <hr />
+            <br />
+            <a href="/shops" class="small">Continue Shopping</a>
+            <div>
+
+            </div>
+            <div id="result"></div>
+
+        </div>
+    </div>
+</div>
+

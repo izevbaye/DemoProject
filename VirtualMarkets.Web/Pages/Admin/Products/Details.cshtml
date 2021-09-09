@@ -1,0 +1,97 @@
+﻿@page
+@model DemoProject.Web.Pages.Admin.Projects.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tbl_Products</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Product_Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Product_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.SupplierID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.SupplierID)
+        </dd>
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Tbl_Departments_Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Tbl_Departments_Category.CategoryID)
+        </dd>*@
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.EntryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.EntryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Product_Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Product_Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Description_Short)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Description_Short)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Description_Long)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Description_Long)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Price_Unit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Price_Unit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Price_Advert)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Price_Advert)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Stock)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Stock)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Tag_Description_One)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Tag_Description_One)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.Tag_Description_Two)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.Tag_Description_Two)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tbl_Products.IsEnabled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tbl_Products.IsEnabled)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Tbl_Products.ProductID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

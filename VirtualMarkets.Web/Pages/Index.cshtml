@@ -1,0 +1,139 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+<div class="row  navbar-expand-lg ">
+
+    <div class="col-md-4  X_border_thin text-center">
+        <p>
+            Scripture, Memories, Gifts & Ideas
+        </p>
+        <a href="/GetStarted">Get Started <img style="height:40px;" src="~/images/icons/icon_flag.png" /> </a>
+        <hr />
+
+        @await Html.PartialAsync("Shared/VM/_TopSelling.cshtml")
+
+        <br />
+        @await Html.PartialAsync("Shared/VM/_TopSelling_SeeAlso.cshtml")
+
+
+
+
+    </div>
+
+    <div class="col-md-8 collapse navbar-collapse">
+
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+
+            </ol>
+            <div class="carousel-inner " role="listbox">
+                <div class="carousel-item active  X_border">
+                    <a class="btn btn-default" href="/GetStarted">
+                        <img src="~/images/misc/0.png" class="X_Img d-block img-fluid" alt="First slide" />
+                        <div class="carousel-caption" role="option">
+
+                            <p>
+                                Thank God - I am grateful
+
+                                Yes oh !
+
+                            </p>
+
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item  X_border">
+
+                    <img src="~/images/misc/1.png" class="X_Img d-block img-fluid" alt="Second slide">
+                    <div class="carousel-caption" role="option">
+                        <p>
+                            Done 6 + years and counting. lol
+                            <a class="btn btn-default" href="http://www.1newday.com">
+                                Learn More
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="carousel-item  X_border">
+
+                    <img src="~/images/misc/2.png" class="X_Img d-block img-fluid" alt="Second slide">
+                    <div class="carousel-caption" role="option">
+                        <p>
+                            Done 6 + years and counting. lol
+                            <a class="btn btn-default" href="http://www.1newday.com">
+                                Learn More
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="carousel-item  X_border">
+                    <a href="/Bible">
+                        <img src="~/images/misc/3.png" class="X_Img d-block img-fluid" alt="Second slide">
+                        <div class="carousel-caption" role="option">
+                            <p>
+                                Chose from hundreds of free templates
+
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="carousel-item  X_border">
+                    <a href="/Bible">
+                        <img src="~/images/misc/4.png" class="X_Img d-block img-fluid" alt="Second slide">
+                        <div class="carousel-caption" role="option">
+                            <p>
+                                Chose from hundreds of free templates
+
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#carouselExampleIndicators" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carouselExampleIndicators" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+

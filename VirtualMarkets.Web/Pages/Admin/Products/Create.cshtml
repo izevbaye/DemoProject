@@ -1,0 +1,93 @@
+﻿@page
+@model DemoProject.Web.Pages.Admin.Projects.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tbl_Products</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Product_Name" class="control-label"></label>
+                <input asp-for="Tbl_Products.Product_Name" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Product_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.SupplierID" class="control-label"></label>
+                <input asp-for="Tbl_Products.SupplierID" class="form-control" />
+                <span asp-validation-for="Tbl_Products.SupplierID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.RegistrationID" class="control-label"></label>
+                <select asp-for="Tbl_Products.RegistrationID" class ="form-control" asp-items="ViewBag.CategoryID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.EntryDate" class="control-label"></label>
+                <input asp-for="Tbl_Products.EntryDate" class="form-control" />
+                <span asp-validation-for="Tbl_Products.EntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Product_Code" class="control-label"></label>
+                <input asp-for="Tbl_Products.Product_Code" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Product_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Description_Short" class="control-label"></label>
+                <input asp-for="Tbl_Products.Description_Short" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Description_Short" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Description_Long" class="control-label"></label>
+                <input asp-for="Tbl_Products.Description_Long" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Description_Long" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Price_Unit" class="control-label"></label>
+                <input asp-for="Tbl_Products.Price_Unit" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Price_Unit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Price_Advert" class="control-label"></label>
+                <input asp-for="Tbl_Products.Price_Advert" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Price_Advert" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Tbl_Products.Stock" /> @Html.DisplayNameFor(model => model.Tbl_Products.Stock)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Tag_Description_One" class="control-label"></label>
+                <input asp-for="Tbl_Products.Tag_Description_One" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Tag_Description_One" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tbl_Products.Tag_Description_Two" class="control-label"></label>
+                <input asp-for="Tbl_Products.Tag_Description_Two" class="form-control" />
+                <span asp-validation-for="Tbl_Products.Tag_Description_Two" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Tbl_Products.IsEnabled" /> @Html.DisplayNameFor(model => model.Tbl_Products.IsEnabled)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

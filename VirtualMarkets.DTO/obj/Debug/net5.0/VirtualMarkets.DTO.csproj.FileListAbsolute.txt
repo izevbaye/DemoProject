@@ -1,0 +1,12 @@
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\bin\Debug\net5.0\VirtualMarkets.DTO.deps.json
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\bin\Debug\net5.0\VirtualMarkets.DTO.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\bin\Debug\net5.0\ref\VirtualMarkets.DTO.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\bin\Debug\net5.0\VirtualMarkets.DTO.pdb
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\VirtualMarkets.DTO.csproj.AssemblyReference.cache
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\VirtualMarkets.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\VirtualMarkets.DTO.AssemblyInfoInputs.cache
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\VirtualMarkets.DTO.AssemblyInfo.cs
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\VirtualMarkets.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\VirtualMarkets.DTO.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\ref\VirtualMarkets.DTO.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.DTO\obj\Debug\net5.0\VirtualMarkets.DTO.pdb

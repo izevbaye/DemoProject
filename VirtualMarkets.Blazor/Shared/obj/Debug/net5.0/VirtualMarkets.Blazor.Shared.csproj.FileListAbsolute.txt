@@ -1,0 +1,12 @@
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\bin\Debug\net5.0\VirtualMarkets.Blazor.Shared.deps.json
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\bin\Debug\net5.0\VirtualMarkets.Blazor.Shared.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\bin\Debug\net5.0\ref\VirtualMarkets.Blazor.Shared.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\bin\Debug\net5.0\VirtualMarkets.Blazor.Shared.pdb
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\VirtualMarkets.Blazor.Shared.csproj.AssemblyReference.cache
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\VirtualMarkets.Blazor.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\VirtualMarkets.Blazor.Shared.AssemblyInfoInputs.cache
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\VirtualMarkets.Blazor.Shared.AssemblyInfo.cs
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\VirtualMarkets.Blazor.Shared.csproj.CoreCompileInputs.cache
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\VirtualMarkets.Blazor.Shared.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\ref\VirtualMarkets.Blazor.Shared.dll
+C:\Users\ehioz\OneDrive\Documents\MEGAsync Downloads\2021\VirtualMarkets\VirtualMarkets.Blazor\Shared\obj\Debug\net5.0\VirtualMarkets.Blazor.Shared.pdb
